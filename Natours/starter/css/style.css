@@ -6,3 +6,146 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+/* 
+<--! power of inherentance --> */
+body {
+  font-family: "Lato", sans-serif; 
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; 
+}
+
+.header {
+  /* vh: every point the height of this box should be 
+  95% of the view port height.100% WOULD FILL ALL THE VIEW PORT 95% LEFT WHITE SPACE AT THE BOTTOM */
+  height: 95vh; 
+  /* to specify gradients we always use the background-image property
+  Whatever we want on top should be after the comma */
+  background-image: linear-gradient(
+    to right bottom, rgba(126, 213, 111, 0.8),
+    rgba(40, 180, 131, 0.8)), 
+    url(../img/hero.jpg); 
+  /* whatever the width of the view port you try to 
+  fit the element inside of the box. */
+  background-size: cover; 
+  /* no matter what height is the vh the top will always show */
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+  position: relative; 
+}
+
+/* this is the image container */
+.logo-box {
+  position: absolute; 
+  top: 40px; 
+  left: 40px; 
+}
+
+/* this is the image itself */
+.logo {
+  height: 35px;
+
+}
+
+.text-box {
+  position: absolute;
+  /* this top and left are in relation of our parent element */
+  top: 40%; 
+  left: 50%;
+  /* transform is in relation to the element */
+  transform: translate(-50%, -50%); 
+}
+
+.heading-primary {
+  color: #fff; 
+  text-transform: uppercase; 
+  
+}
+
+.heading-primary-main {
+  /* occupy the entire width that they have available and they create line breaks */
+  display: block; 
+  font-size: 60px; 
+  font-weight: 400; 
+  letter-spacing: 35px; 
+  animation-name: moveInLeft; 
+  animation-duration: 3s;
+  /* this is an animation that defines how it will proceed so how fast 
+  or how slow the paramenters we specify will last MOZILLA has examples of values */
+  animation-timing-function: ease-out; 
+  /* animation will start after whatever seconds we set it */
+  /* animation-delay: 3s;  */
+  /* the animation will happen whatever times we set it */
+  /* animation-iteration-count: 3;  */
+
+  /* determines if the back part of an element when we transform it is visible or not, 
+  since it will shake a bit when the elements are animated  */
+  backface-visibility: hidden; 
+}
+
+.heading-primary-sub {
+  /* occupy the entire width that they have available and they create line breaks */
+  display: block; 
+  font-size: 20px; 
+  font-weight: 700; 
+  letter-spacing: 17.4px;
+  /* animation-name: moveInRight;
+  animation-duration: 3s;  */
+  animation: moveInRight 1s ease-out;
+}
+
+/* There are two types of animations in CSS transition and change the properties */
+
+@keyframes moveInLeft {
+  /* where the animation starts */
+  0% {
+    opacity: 0; 
+    transform: translateX(-100px); 
+  }
+
+  60% {
+    transform: rotate(120deg);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* where the animation ends */
+  100% {
+    opacity: 1;
+    /* exactly the way it looks at the beginning  */
+    transform: translate(0); 
+  }
+}
+
+@keyframes moveInRight {
+  /* where the animation starts */
+  0% {
+    opacity: 0; 
+    transform: translateX(100px); 
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* where the animation ends */
+  100% {
+    opacity: 1;
+    /* exactly the way it looks at the beginning  */
+    transform: translate(0); 
+  }
+}
+
+.btn {
+  
+}
