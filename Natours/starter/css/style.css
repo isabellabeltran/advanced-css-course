@@ -7,20 +7,29 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0; 
   padding: 0; 
-  box-sizing: border-box; 
+  box-sizing: inherit;
+}
+
+/* 100% will let the user change the fontsize to any size they need */
+html {
+  font-size: 62.5%; 
+
 }
 /* 
 <--! power of inherentance --> */
 body {
   font-family: "Lato", sans-serif; 
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 1.6rem; */
   line-height: 1.7;
   color: #777;
-  padding: 30px; 
+  padding: 3rem;
+  box-sizing: border-box; 
 }
 
 .header {
@@ -43,15 +52,15 @@ body {
 }
 
 /* this is the image container */
-.logo-box {
+.header__logo-box {
   position: absolute; 
-  top: 40px; 
-  left: 40px; 
+  top: 4rem; 
+  left: 4rem; 
 }
 
 /* this is the image itself */
-.logo {
-  height: 35px;
+.header__logo {
+  height: 3.5rem;
 
 }
 
@@ -68,15 +77,15 @@ body {
 .heading-primary {
   color: #fff; 
   text-transform: uppercase; 
-  margin-bottom: 60px; 
+  margin-bottom: 6rem; 
 }
 
-.heading-primary-main {
+.heading-primary--main {
   /* occupy the entire width that they have available and they create line breaks */
   display: block; 
-  font-size: 60px; 
+  font-size: 6rem; 
   font-weight: 400; 
-  letter-spacing: 35px; 
+  letter-spacing: 3.5rem; 
   animation-name: moveInLeft; 
   animation-duration: 2s;
   /* this is an animation that defines how it will proceed so how fast 
@@ -92,12 +101,12 @@ body {
   backface-visibility: hidden; 
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   /* occupy the entire width that they have available and they create line breaks */
   display: block; 
-  font-size: 20px; 
+  font-size: 2rem; 
   font-weight: 700; 
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   /* animation-name: moveInRight;
   animation-duration: 3s;  */
   animation: moveInRight 2s ease-out;
@@ -109,7 +118,7 @@ body {
   /* where the animation starts */
   0% {
     opacity: 0; 
-    transform: translateX(-100px); 
+    transform: translateX(-1rem); 
   }
 
   /* 60% {
@@ -117,7 +126,7 @@ body {
   } */
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   /* where the animation ends */
@@ -132,11 +141,11 @@ body {
   /* where the animation starts */
   0% {
     opacity: 0; 
-    transform: translateX(100px); 
+    transform: translateX(1rem); 
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   /* where the animation ends */
@@ -156,31 +165,32 @@ which starts at blue and becomes purple when is already visited*/
 .btn:visited {
   text-transform: uppercase; 
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* on initial state there will be a transition on all the properties.  */
   transition: all .2s; 
   /* the reference of the after pseudo class absolute position */
   position: relative;
+  font-size: 1.6rem; 
 }
 
 .btn:hover {
   transform: translateY(-3px); 
   /* the offset in the X direction is zero because we don't want any the Y direction will be the 
-  shadow down 10px and the third value is the blur. The color rgba becuase we wanted to be transparent 
+  shadow down 10rem and the third value is the blur. The color rgba becuase we wanted to be transparent 
   */
-  box-shadow: 0 10px 20px rgba(0,0,0,.2); 
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2); 
 }
 
 /* When we click an element is called the active state 
 this is  */
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0,0,0,.2); 
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); 
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777; 
 }
@@ -192,7 +202,7 @@ this is  */
   display: inline-block; 
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute; 
   top: 0;
   left: 0;
@@ -202,7 +212,7 @@ this is  */
   transition: all .4s; 
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -231,7 +241,7 @@ Scale will increase the element example 2 will increase double its original size
   }
 }
 
-.btn-animated {
+.btn--animated {
   /* .75 is a delay  */
   animation: moveInBottom .5s ease-out .75s; 
   /* the animation will be applied before the animation starts */
