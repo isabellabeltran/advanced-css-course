@@ -1,11 +1,14 @@
 /*
 COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
 */
+
+$color-primary: #55c57a;
+$color-primary-light:#7ed56f;
+$color-primary-dark: #28b485; 
+
+$color-grey-dark: #777; 
+$color-white: #fff; 
+
 
 *,
 *::after,
@@ -27,7 +30,7 @@ body {
   font-weight: 400;
   /* font-size: 1.6rem; */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
   box-sizing: border-box; 
 }
@@ -39,8 +42,8 @@ body {
   /* to specify gradients we always use the background-image property
   Whatever we want on top should be after the comma */
   background-image: linear-gradient(
-    to right bottom, rgba(126, 213, 111, 0.8),
-    rgba(40, 180, 131, 0.8)), 
+    to right bottom, rgba($color-primary-light, 0.8),
+    rgba($color-primary-dark, 0.8)), 
     url(../img/hero.jpg); 
   /* whatever the width of the view port you try to 
   fit the element inside of the box. */
@@ -64,7 +67,7 @@ body {
 
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   /* this top and left are in relation of our parent element */
   top: 40%; 
@@ -75,7 +78,7 @@ body {
 }
 
 .heading-primary {
-  color: #fff; 
+  color: $color-white; 
   text-transform: uppercase; 
   margin-bottom: 6rem; 
 }
@@ -118,7 +121,7 @@ body {
   /* where the animation starts */
   0% {
     opacity: 0; 
-    transform: translateX(-1rem); 
+    transform: translateX(-10rem); 
   }
 
   /* 60% {
@@ -141,7 +144,7 @@ body {
   /* where the animation starts */
   0% {
     opacity: 0; 
-    transform: translateX(1rem); 
+    transform: translateX(10rem); 
   }
 
   80% {
@@ -154,6 +157,28 @@ body {
     /* exactly the way it looks at the beginning  */
     transform: translate(0); 
   }
+}
+
+@keyframes moveInBottom {
+  /* where the animation starts */
+  0% {
+    opacity: 0; 
+    transform: translateY(3rem); 
+  }
+
+  /* where the animation ends */
+  100% {
+    opacity: 1;
+    /* exactly the way it looks at the beginning  */
+    transform: translate(0); 
+  }
+}
+
+.btn--animated {
+  /* .75 is a delay  */
+  animation: moveInBottom .5s ease-out .75s; 
+  /* the animation will be applied before the animation starts */
+  animation-fill-mode: backwards; 
 }
 
 /* pseudo classes are special states of a selector, link is a state of a btn selector
@@ -191,8 +216,8 @@ this is  */
 }
 
 .btn--white {
-  background-color: #fff;
-  color: #777; 
+  background-color: $color-white;
+  color: $color-grey-dark; 
 }
 
 /* the after pseudo element is treated like a child of the element  */
@@ -213,7 +238,7 @@ this is  */
 }
 
 .btn--white::after {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 /* when we hover the button (this means then ::) we want some styles for the after pseudo element 
@@ -226,24 +251,3 @@ Scale will increase the element example 2 will increase double its original size
   opacity: 0;
 }
 
-@keyframes moveInBottom {
-  /* where the animation starts */
-  0% {
-    opacity: 0; 
-    transform: translateY(30px); 
-  }
-
-  /* where the animation ends */
-  100% {
-    opacity: 1;
-    /* exactly the way it looks at the beginning  */
-    transform: translate(0); 
-  }
-}
-
-.btn--animated {
-  /* .75 is a delay  */
-  animation: moveInBottom .5s ease-out .75s; 
-  /* the animation will be applied before the animation starts */
-  animation-fill-mode: backwards; 
-}
