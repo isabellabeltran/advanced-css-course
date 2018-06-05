@@ -19,7 +19,6 @@ use the clearfix hack
 
 .row {
   max-width: $grid-width; 
-  background-color: #eee; 
   margin: 0 auto; 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical; 
@@ -29,7 +28,6 @@ use the clearfix hack
 
   // We can do ^ start with, = contain or $ end with 
   [class^="col-"] {
-    background-color: orangered; 
     float: left; 
 
     &:not(:last-child) {
