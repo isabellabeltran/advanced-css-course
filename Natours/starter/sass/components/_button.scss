@@ -1,0 +1,76 @@
+.btn {
+  /* pseudo classes are special states of a selector, link is a state of a btn selector
+  We use pseudo classes to style elements under a special condition
+  Visited is the state when the user has already clicked in the button before and then sees the btn again
+  We put the link and visited state together so the style is the same instead of the regular browser link state
+  which starts at blue and becomes purple when is already visited*/
+  &:link,
+  &:visited {
+    text-transform: uppercase; 
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /* on initial state there will be a transition on all the properties.  */
+    transition: all .2s; 
+    /* the reference of the after pseudo class absolute position */
+    position: relative;
+    font-size: 1.6rem; 
+  }
+  
+  &:hover {
+    transform: translateY(-3px); 
+    /* the offset in the X direction is zero because we don't want any the Y direction will be the 
+    shadow down 10rem and the third value is the blur. The color rgba becuase we wanted to be transparent 
+    */
+    box-shadow: 0 1rem 2rem rgba($color-black,.2); 
+    /* when we hover the button (this means then ::) we want some styles for the after pseudo element 
+    this is a style on the pseudo element only when the btn is hover
+    This will make the btn bigger and fade out 
+    Scale will increase the element example 2 will increase double its original size*/
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /* trick to fade something out (it set something to invible) */
+      opacity: 0;
+    }
+  }
+  
+  /* When we click an element is called the active state 
+  this is  */
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2); 
+  }
+  
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark; 
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  
+  /* the after pseudo element is treated like a child of the element  */
+  &::after {
+    /* we always need to specify the content even if is empty otherwise is not going to appear  */
+    content: "";
+    display: inline-block; 
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    /* the z index defines the position of the elements if there one on top of the other, -1 will be behind the btn */
+    z-index: -1; 
+    /* here is where we want the transition to happen  */
+    transition: all .4s; 
+  }
+
+  &--animated {
+    /* .75 is a delay  */
+    animation: moveInBottom .5s ease-out .75s; 
+    /* the animation will be applied before the animation starts */
+    animation-fill-mode: backwards; 
+  }
+}
