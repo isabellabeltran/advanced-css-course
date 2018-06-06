@@ -1,0 +1,64 @@
+body {
+  font-family: "Lato", sans-serif; 
+  font-weight: 400;
+  /* font-size: 1.6rem; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: $color-white; 
+  text-transform: uppercase; 
+  margin-bottom: 6rem;
+
+    &--main {
+    /* occupy the entire width that they have available and they create line breaks */
+    display: block; 
+    font-size: 6rem; 
+    font-weight: 400; 
+    letter-spacing: 3.5rem; 
+    animation-name: moveInLeft; 
+    animation-duration: 2s;
+    /* this is an animation that defines how it will proceed so how fast 
+    or how slow the paramenters we specify will last MOZILLA has examples of values */
+    animation-timing-function: ease-out; 
+    /* animation will start after whatever seconds we set it */
+    /* animation-delay: 3s;  */
+    /* the animation will happen whatever times we set it */
+    /* animation-iteration-count: 3;  */
+  
+    /* determines if the back part of an element when we transform it is visible or not, 
+    since it will shake a bit when the elements are animated  */
+    backface-visibility: hidden; 
+  }
+  
+  &--sub {
+    /* occupy the entire width that they have available and they create line breaks */
+    display: block; 
+    font-size: 2rem; 
+    font-weight: 700; 
+    letter-spacing: 1.75rem;
+    /* animation-name: moveInRight;
+    animation-duration: 3s;  */
+    animation: moveInRight 2s ease-out;
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem; 
+  text-transform: uppercase;
+  font-weight: 700; 
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  display: inline-block;
+  -webkit-background-clip: text; 
+  color: transparent; 
+  transition: all .2s;
+  // it doesn't matter if it scale or not because is so little
+  letter-spacing: 2px; 
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
+}
