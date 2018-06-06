@@ -15,7 +15,7 @@
     transition: all .2s; 
     /* the reference of the after pseudo class absolute position */
     position: relative;
-    font-size: 1.6rem; 
+    font-size: $default-font-size; 
   }
   
   &:hover {
@@ -72,5 +72,29 @@
     animation: moveInBottom .5s ease-out .75s; 
     /* the animation will be applied before the animation starts */
     animation-fill-mode: backwards; 
+  }
+}
+
+.btn-text {
+  &:link, 
+  &:visited {
+    font-size: $default-font-size; 
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary; 
+    padding: 3px; 
+    // outline-offset: 2px; 
+  }
+  &:hover { 
+    background-color: $color-primary; 
+    color: $color-white; 
+    box-shadow: 0 1rem 2rem rgba($color-black, .15); 
+    transform: translateY(-2px);
+
+  } 
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15); 
+    transform: translateY(0);
   }
 }
