@@ -1,11 +1,13 @@
 .card {
+
+  //FUNCTIONALITY 
   perspective: 150rem;
   -moz-perspective: 150rem; 
   position: relative; 
-  height: 50rem; 
+  height: 52rem; 
 
   &__side {
-  height: 50rem; 
+  height: 52rem; 
   // the third value is a transition function called ease
   transition: all .8s ease; 
   position: absolute;
@@ -14,7 +16,9 @@
   width: 100%;
   // we will no longer be able to see the back side
   backface-visibility: hidden; 
-  border-radius: .3rem; 
+  border-radius: .3rem;
+  // The card image overflows the round border, with the overflow property as hidden we can fix that
+  overflow: hidden; 
   box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
   
     &--front {
@@ -28,7 +32,16 @@
       &-1 {
         // for linear gradient is background image instead of color
         background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
-        
+      }
+
+      &-2 {
+        // for linear gradient is background image instead of color
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+      }
+
+      &-3 {
+        // for linear gradient is background image instead of color
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
       }
 
     }
@@ -36,10 +49,125 @@
 
 
   &:hover &__side--front {
-    transform: rotateY(180deg); 
+    transform: rotateY(-180deg); 
   }
 
   &:hover &__side--back {
     transform: rotateY(0); 
   }
+
+  //FRONT SIDE STYLING
+  &__picture {
+    // This is for all the images 
+    background-size: cover; 
+    height: 23rem; 
+    // each coordinate starts from the left top 
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); 
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); 
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+
+    &--1 {
+      //Move only one level because it's compiling with the css file 
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg) ;
+      // This is brand new so it only works on chrome, firefox and safari
+      background-blend-mode: screen; 
+    }
+    &--2 {
+      //Move only one level because it's compiling with the css file 
+      background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
+      background-blend-mode: screen;
+    }
+    &--3 {
+      //Move only one level because it's compiling with the css file 
+      background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
+      background-blend-mode: screen;
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem; 
+    font-weight: 300; 
+    text-transform: uppercase; 
+    text-align: right; 
+    color: $color-white; 
+    position: absolute;
+    top: 12rem; 
+    right: 2rem; 
+    width: 75%; 
+  }
+
+  // We add the span heading outside the heading because it is not a child of the heading 
+  // It's not a modifier of heading or an element of heading so it's a new element in the BEM system
+
+  &__heading-span {
+    padding: 1rem 1.5rem; 
+    // it treats a line of text at its own individual
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; 
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-secondary-light, .85), 
+        rgba($color-secondary-dark, .85));
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, .85), 
+        rgba($color-primary-dark, .85));
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-tertiary-light, .85), 
+        rgba($color-tertiary-dark, .85));
+    }
+  }
+
+  &__details {
+    padding: 3rem; 
+
+    ul {
+      list-style: none; 
+      width: 80%; 
+      margin: 0 auto; 
+
+      li {
+        text-align: center; 
+        font-size: 1.5rem; 
+        padding: 1rem; 
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2; 
+        }
+      }
+    }
+  }
+
+  //BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    // center method
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+  }
+
+  &__price-box {
+    text-align: center; 
+    margin-bottom: 8rem; 
+    color: $color-white; 
+    width: 90%;
+  }
+  &__price-only {
+    font-size: 1.4rem; 
+    text-transform: uppercase; 
+
+  }
+  &__price-value {
+    font-size: 6rem; 
+    font-weight: 100; 
+  }
 }
+

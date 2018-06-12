@@ -50,6 +50,15 @@
     }
   }
   
+  &--green {
+    background-color: $color-primary;
+    color: $color-white; 
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* the after pseudo element is treated like a child of the element  */
   &::after {
     /* we always need to specify the content even if is empty otherwise is not going to appear  */
